@@ -1,0 +1,15 @@
+name: "Simple Labeler"
+description: "Automatically applies labels to a PR when it's created."
+inputs:
+  token:
+    description: "GitHub token"
+    required: true
+  labels:
+    description: "List of labels to be applied when a PR is created, separated by commas."
+    required: true
+  duplicate:
+    description: "If existing labels match this pattern, new labels won't be added. (Uses glob pattern)"
+    required: false
+runs:
+  using: "node16"
+  main: "dist/index.js"
