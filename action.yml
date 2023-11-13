@@ -1,5 +1,8 @@
 name: "Simple Labeler"
 description: "Automatically applies labels to a PR when it's created."
+branding:
+  icon: "anchor"
+  color: "yellow"
 inputs:
   token:
     description: "GitHub token"
