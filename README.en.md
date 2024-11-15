@@ -1,12 +1,12 @@
 # simple-labeler
 
-🌏 한국어 | [**English**](README.en.md)
+🌏 [**한국어**](README.md) | English
 
-PR 에 자동으로 Label 을 추가해주는 간단한 Github Actions
+GitHub Actions to automatically add a label to pull requests
 
 ## Usage
 
-1. 아래와 같이 `.github/workflows/simple-labeler.yml` 파일을 작성합니다:
+1. Create a `.github/workflows/simple-labeler.yml` file:
 
 ```yml
 name: Simple Labeler
@@ -25,23 +25,22 @@ jobs:
           duplicate: "D-*"
 ```
 
-2. 원하는 이벤트를 `on` 에 명시합니다. 여기서는 PR 생성 시, Draft 에서 Open 상태로 전환 시 Label 을 추가합니다.
-     (참고로, Draft 생성 시에는 발생하지 않습니다.)
-3. 해당 이벤트가 발생하면 GitHub Actions 가 자동으로 `labels`에 입력한 Label 을 추가합니다.
+2. Specify the events to trigger in `on`. In this example above, a label is added when a PR is created or transitioned from Draft to open status. (Note: it does not trigger on Draft PR creation.)
+3. When the specified event occurs, `simple-labeler` automatically adds the label specified in `labels`.
 
 ## Inputs
 
 ### `token`
 
-**Required** GitHub에서 제공하는 토큰
+**Required** GitHub token
 
 ### `labels`
 
-**Required** 이벤트 발생 시 추가할 Label 목록. 콤마(,)로 구분
+**Required** Labels to add when the event occurs, separated by commas(,)
 
 ### `duplicate`
 
-기존에 붙은 Label 중 이 패턴과 일치하는 것이 있다면 새 Label을 추가하지 않습니다. (glob 패턴 사용)
+If a label matches this pattern(glob), no new label is added.
 
 ## License
 ```
